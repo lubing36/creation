@@ -66,11 +66,12 @@ public class JcPlanOrderController {
 		return "jcPlanOrder.show_jcPlanOrderData";
 	}
 	
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping(value="temp")
-	public Object temp(Model model,HttpServletRequest request, HttpServletResponse response) {
-		long count =  this.bankUnionNumberInfoMapper.countByExample(null);
-		return String.valueOf(count);
+	public String temp(Model model,HttpServletRequest request, HttpServletResponse response) {
+//		long count =  this.bankUnionNumberInfoMapper.countByExample(null);
+//		return String.valueOf(count);
+		return "github";
 	}
 	
 	
