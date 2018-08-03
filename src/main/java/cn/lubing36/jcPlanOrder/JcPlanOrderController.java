@@ -59,12 +59,12 @@ public class JcPlanOrderController {
 	@RequestMapping(value="show_jcPlanOrderData")
 	public String show_jcPlanOrderData(Model model) throws IOException{
 		
-//		long count = jcPlannedOrderMapper.countByExample(null);
-		long count =  this.bankUnionNumberInfoMapper.countByExample(null);
+		long count = jcPlannedOrderMapper.countByExample(null);
 		PageInfo info = new PageInfo((int)count, 10, 1, null);
 		model.addAttribute("info", info);
 		return "jcPlanOrder.show_jcPlanOrderData";
 	}
+	
 	
 //	@ResponseBody
 	@RequestMapping(value="temp")

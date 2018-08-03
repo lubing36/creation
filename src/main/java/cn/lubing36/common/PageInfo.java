@@ -22,6 +22,9 @@ public class PageInfo implements Serializable {
 	private int currentPage; // 当前页数
 	private List<?> data; // 数据
 
+	public PageInfo() {
+	}
+	
 	public PageInfo(int count, int numsPerPage, int currentPage, List<?> data) {
 		this.count = count;
 		this.numsPerPage = numsPerPage;

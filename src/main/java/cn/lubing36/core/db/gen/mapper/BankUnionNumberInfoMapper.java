@@ -1,6 +1,8 @@
 package cn.lubing36.core.db.gen.mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import cn.lubing36.core.db.gen.domain.BankUnionNumberInfo;
@@ -20,4 +22,12 @@ public interface BankUnionNumberInfoMapper {
     int updateByExampleSelective(@Param("record") BankUnionNumberInfo record, @Param("example") BankUnionNumberInfoExample example);
 
     int updateByExample(@Param("record") BankUnionNumberInfo record, @Param("example") BankUnionNumberInfoExample example);
+    
+    /**
+     * ∑÷“≥≤È—Ø
+     * @param example
+     * @return
+     */
+    List<BankUnionNumberInfo> selectByPage(@Param("params") Map<String, Object> params);
+    
 }

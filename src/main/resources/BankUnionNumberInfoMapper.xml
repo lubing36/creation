@@ -173,4 +173,39 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+  
+  
+  <select id="selectByPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+     from bank_union_number bun where 1=1
+    <if test=" params.bankUnionNumber!=null and params.bankUnionNumber!='' ">
+    	and bun.bank_union_number = #{params.bankUnionNumber}
+    </if>
+    
+    <if test=" params.bankName!=null and params.bankName!='' ">
+    	and bun.bank_name like '%#{params.bankName}%'
+    </if>
+    
+    <if test=" params.bankContactPhone!=null and params.bankContactPhone!='' ">
+    	and bun.bank_contact_phone = #{params.bankContactPhone}
+    </if>
+    
+    <if test=" params.bankContactAddress!=null and params.bankContactAddress!='' ">
+    	and bun.bank_contact_address = #{params.bankContactAddress}
+    </if>
+    
+    limit
+    <choose>
+    	<when test="params.offset==null or params.offset==''">
+    		0,
+    	</when>
+    	<otherwise>
+		    #{params.offset},
+    	</otherwise>
+    </choose>
+    10
+    
+  </select>
+  
 </mapper>
