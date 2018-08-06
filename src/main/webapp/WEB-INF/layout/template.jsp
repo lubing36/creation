@@ -8,14 +8,18 @@
 <head>
 <title>Creation</title>
 <link rel="stylesheet" href="${ctx }/dist/css/site.min.css">
+<link rel="stylesheet" href="${ctx }/dist/css/bootstrap-table.min.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+<script type="text/javascript" src="${ctx }/dist/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/site.min.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${ctx }/dist/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="${ctx }/dist/js/bootstrap-table-zh-CN.js"></script>
 </head>
 <body>
 
