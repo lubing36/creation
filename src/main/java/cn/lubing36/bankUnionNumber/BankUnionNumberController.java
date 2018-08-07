@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+
 import cn.lubing36.common.PageInfo;
 import cn.lubing36.core.db.gen.domain.BankUnionNumberInfo;
 import cn.lubing36.core.db.gen.domain.BankUnionNumberInfoExample;
@@ -63,12 +65,30 @@ public class BankUnionNumberController {
 		return "bankUnionNumberData";
 	}
 	
-	@ResponseBody
+	
+	
+	
 	@RequestMapping(value="queryBankUnionNumberData")
-	public String queryBankUnionNumberData(Model model, BankUnionNumberInfo bankUnionNumberInfo, PageInfo pageInfo){
-		System.out.println(bankUnionNumberInfo);
-		System.out.println(pageInfo);
-		return "";
+	public String queryBankUnionNumberData(Model model){
+		
+		return "temp";
+	}
+	
+	@RequestMapping(value="temp1")
+	public @ResponseBody String temp(){
+		
+		long count = bankUnionNumberInfoMapper.countByExample(null);
+		//获取数据集合【分页查询】
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("offset", 20);
+		List<BankUnionNumberInfo> infos = bankUnionNumberInfoMapper.selectByPage(params);
+		Object str = JSON.toJSON(infos);
+		System.out.println(str);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("total", count);
+		map.put("rows", str);
+		System.out.println("hpp:" + JSON.toJSON(map));
+		return JSON.toJSON(map).toString();
 	}
 	
 	

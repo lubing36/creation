@@ -17,52 +17,79 @@
 		});
 	}
 	
-	$(function(){
-		//1.初始化Table
-		var oTable = new TableInit();
-		oTable.Init();
-		//2.初始化Button的点击事件
-		var oButtoInit = new ButtonInit();
-		oButtonInit.Init();
-	});
-	
-	var TableInit = function(){
-		var oTableInit = new Object();
-		//初始化table
-		oTableInit.Init = function(){
-			$('#tb_departments').bootstrapTable({
-				url:'${ctx}/creation/queryBankUnionNumberData.htm',
-				menthod:'post',
-				toolbar:'#toolbar',
-				strped:true,
-				cache:false,
-				pagination:true,
-				sortable:false,
-				sortOrder:'asc',
-				queryParams:oTableInit.queryParams,
-				sidePagination:'server',
-				pageNumber:1,
-				pageSize:10,
-				pageList:{10, 20, 50},
-				search:true,
-				strictSearch:true,
-				showColumns:true,
-				showRefresh:true,
-				clickToSelect:true,
-				height:500,
-				uniqueId:'ID',
-				showToggle:true,
-				cardView:false,
-				detailView:false,
-				columns:[{
-					checkbox:true
-				},{
-					field:'name',
-					title:'bume'
-				}],
-			});
-		}
-	}
+	$(function () {
+		 
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+ 
+        //2.初始化Button的点击事件
+        /* var oButtonInit = new ButtonInit();
+        oButtonInit.Init(); */
+ 
+    });
+ 
+ 
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#tradeList').bootstrapTable({
+                url: '${ctx}/creation/queryBankUnionNumberData.htm',         //请求后台的URL（*）
+                method: 'post',                      //请求方式（*）
+                toolbar: '#toolbar',                //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: false,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//传递参数（*）
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber:1,                       //初始化加载第一页，默认第一页
+                pageSize: 50,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                strictSearch: true,
+                clickToSelect: true,                //是否启用点击选中行
+                height: 460,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "id",                     //每一行的唯一标识，一般为主键列
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                   //是否显示父子表
+                columns: [{
+                    field: 'bankUnionNumber',
+                    title: '联行号'
+                }, {
+                    field: 'bankName',
+                    title: '银行名称'
+                }, {
+                    field: 'contactPhone',
+                    title: '联系电话'
+                }, {
+                    field: 'contactAddress',
+                    title: '联系地址'
+                }]
+            });
+        };
+ 
+        //得到查询的参数
+      oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                /* limit: params.limit,   //页面大小
+                offset: params.offset,  //页码
+                sdate: $("#stratTime").val(),
+                edate: $("#endTime").val(),
+                sellerid: $("#sellerid").val(),
+                orderid: $("#orderid").val(),
+                CardNumber: $("#CardNumber").val(),
+                maxrows: params.limit,
+                pageindex:params.pageNumber,
+                portid: $("#portid").val(),
+                CardNumber: $("#CardNumber").val(),
+                tradetype:$('input:radio[name="tradetype"]:checked').val(),
+                success:$('input:radio[name="success"]:checked').val(), */
+            };
+            return temp;
+        };
+       
 </script>
 
 <div class="panel-heading">
@@ -155,45 +182,6 @@
 
 
 
-<div class="panel-body" style="padding-bottom:0px;"> 
-	<div class="panel panel-default">
-		<div class="panel-heading">查询条件</div>
-		<div class="panel-body">
-			<form action="" id="queryParams">
-				<div class="form-group" style="margin-top:15px;">
-					<label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>
-					<div class="col=sm-3">
-						<input type="text" class="form-control" id="txt_search_departmentname"/>
-					</div>
-					
-					<label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>
-					<div class="col=sm-3">
-						<input type="text" class="form-control" id="txt_search_departmentname"/>
-					</div>
-					
-					<label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>
-					<div class="col=sm-3">
-						<input type="text" class="form-control" id="txt_search_departmentname"/>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	
-	<div id="toolbar" class="btn-group">
-		<button id="btn_add" type="button" class="btn btn-default">
-			<span class="glyphicon glyphicon-plus" aria-hidden="true">新增</span>
-		</button>
-		<button id="btn_edit" type="button" class="btn btn-default">
-			<span class="glyphicon glyphicon-pencil" aria-hidden="true">修改</span>
-		</button>
-		<button id="btn_delete" type="button" class="btn btn-default">
-			<span class="glyphicon glyphicon-remove" aria-hidden="true">删除</span>
-		</button>
-		
-		<table id="tb_departments"></table>
-		
-	</div>
 	
 </div>
 
