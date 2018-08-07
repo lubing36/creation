@@ -16,6 +16,20 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<!-- 中文编码过滤器 -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+
 	<!-- spring mvc中实际起到拦截、分发、路程控制的是DispactherServlet类 -->
 	<servlet>
 		<servlet-name>springServlet</servlet-name>

@@ -76,7 +76,6 @@ public class BankUnionNumberController {
 	
 	@RequestMapping(value="temp1")
 	public @ResponseBody String temp(){
-		
 		long count = bankUnionNumberInfoMapper.countByExample(null);
 		//获取数据集合【分页查询】
 		Map<String, Object> params = new HashMap<String, Object>();
