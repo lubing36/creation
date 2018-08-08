@@ -184,7 +184,7 @@
     </if>
     
     <if test=" params.bankName!=null and params.bankName!='' ">
-    	and bun.bank_name like '%#{params.bankName}%'
+    	and bun.bank_name like '%${params.bankName}%'
     </if>
     
     <if test=" params.bankContactPhone!=null and params.bankContactPhone!='' ">

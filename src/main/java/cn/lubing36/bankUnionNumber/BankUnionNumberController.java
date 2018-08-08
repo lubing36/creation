@@ -1,24 +1,30 @@
 package cn.lubing36.bankUnionNumber;
 
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import cn.lubing36.common.PageInfo;
 import cn.lubing36.core.db.gen.domain.BankUnionNumberInfo;
 import cn.lubing36.core.db.gen.domain.BankUnionNumberInfoExample;
+import cn.lubing36.core.db.gen.domain.BankUnionNumberInfoExample.Criteria;
 import cn.lubing36.core.db.gen.mapper.BankUnionNumberInfoMapper;
 
 
@@ -38,55 +44,42 @@ public class BankUnionNumberController {
 		criteria.andContactPhoneEqualTo("00852-3413436");
 		List<BankUnionNumberInfo> list = bankUnionNumberInfoMapper.selectByExample(example);
 		model.addAttribute("list", list);
-		return "query.page";
+		return "query";
 	}
+
 	
 	
-//	@ResponseBody
-	@RequestMapping(value="initBankUnionNumberData")
-	public String initBankUnionNumberData(Model model){
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		//获取数据总条数
-		int count = (int)bankUnionNumberInfoMapper.countByExample(null);
-		map.put("count", count);
-		
-		//获取数据集合【分页查询】
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("offset", 20);
-		List<BankUnionNumberInfo> infos = bankUnionNumberInfoMapper.selectByPage(params);
-		map.put("infos", infos);
 	
-		//初始化分页信息
-		PageInfo pageInfo = new PageInfo(count, 10, 1, infos);
-		map.put("pageInfo", pageInfo);
-		
-		model.addAttribute("data", map);
-		return "bankUnionNumberData";
+	@RequestMapping(value="showBankUnionNumberDataPage")
+	public String queryBankUnionNumberData(Model model){
+		return "bankUnionNumber.bankUnionNumberData";
 	}
-	
-	
 	
 	
 	@RequestMapping(value="queryBankUnionNumberData")
-	public String queryBankUnionNumberData(Model model){
+	public @ResponseBody String temp(HttpServletRequest request){
+		String bankName = request.getParameter("bankName");
+		String bankUnionNumber = request.getParameter("bankUnionNumber");
 		
-		return "temp";
-	}
-	
-	@RequestMapping(value="temp1")
-	public @ResponseBody String temp(){
-		long count = bankUnionNumberInfoMapper.countByExample(null);
+		BankUnionNumberInfoExample example = new BankUnionNumberInfoExample();
+		BankUnionNumberInfoExample.Criteria criteria = example.createCriteria();
+		criteria.andBankNameLike("%"+ bankName +"%");
+		if(!StringUtils.isBlank(bankUnionNumber)){
+			criteria.andBankUnionNumberEqualTo(bankUnionNumber);
+		}
+		long count = bankUnionNumberInfoMapper.countByExample(example);
 		//获取数据集合【分页查询】
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("offset", 20);
+		String offset = request.getParameter("offset");
+		params.put("offset", Integer.valueOf(offset));
+		params.put("bankName", bankName);
+		params.put("bankUnionNumber", bankUnionNumber);
+		
 		List<BankUnionNumberInfo> infos = bankUnionNumberInfoMapper.selectByPage(params);
 		Object str = JSON.toJSON(infos);
-		System.out.println(str);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("total", count);
 		map.put("rows", str);
-		System.out.println("hpp:" + JSON.toJSON(map));
 		return JSON.toJSON(map).toString();
 	}
 	

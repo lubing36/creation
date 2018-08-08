@@ -23,4 +23,5 @@
     </definition>
     
     <definition name="result" template="/WEB-INF/pages/result.jsp"></definition>
+    
 </tiles-definitions>
