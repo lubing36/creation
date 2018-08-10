@@ -24,4 +24,6 @@
     
     <definition name="result" template="/WEB-INF/pages/result.jsp"></definition>
     
+    <definition name="login" template="/WEB-INF/pages/login.jsp"></definition>
+    
 </tiles-definitions>

@@ -15,7 +15,7 @@ public class IndexController {
 	
 	@RequestMapping(value="main")
 	public String showIndex(){
-		return "common.main";
+		return "login";
 	}
 
 }

@@ -30,6 +30,7 @@
 	<mvc:resources location="/dist/" mapping="/dist/**"/>
 
 
+
 	<!-- 自动扫描com.spring.demo.mvc -->
 	<context:component-scan base-package="cn.lubing36"></context:component-scan>
 

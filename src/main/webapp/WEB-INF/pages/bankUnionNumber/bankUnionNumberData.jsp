@@ -24,6 +24,7 @@ function initTable(){
 	    pageSize: 10, // 页面数据条数
 	    pageNumber: 1, // 首页页码
 	    showRefresh: true,
+	    //search:true,
 	    sidePagination: 'server', // 设置为服务器端分页
 	    queryParams: function (params) { // 请求服务器数据时发送的参数，可以在这里添加额外的查询参数，返回false则终止请求
 	        return {

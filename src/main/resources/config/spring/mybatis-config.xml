@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	
 	<mappers>
-		<mapper resource="BankUnionNumberInfoMapper.xml"/>
-		<mapper resource="JcPlannedOrderMapper.xml"/> 
+		<mapper resource="/config/mapper/gen/BankUnionNumberInfoMapper.xml"/>
+		<mapper resource="/config/mapper/gen/JcPlannedOrderMapper.xml"/>
 	</mappers>
 </configuration>
