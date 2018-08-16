@@ -1,11 +1,17 @@
 package cn.lubing36.bankUnionNumber;
 
 
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
@@ -88,4 +94,5 @@ public class BankUnionNumberController {
 	public void pageInfo(WebDataBinder binder){
 		binder.setFieldDefaultPrefix("pageInfo");
 	}
+	
 }

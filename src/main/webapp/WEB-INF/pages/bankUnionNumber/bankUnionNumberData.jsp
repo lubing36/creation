@@ -83,7 +83,7 @@ function initTable(){
                         </div>
                         <label class="control-label col-sm-1" for="txt_search_bankUnionNumber">银行联行号</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" id="txt_search_statu">
+                            <input type="text" class="form-control" id="txt_search_bankUnionNumber">
                         </div>
                         <div class="col-sm-4" style="text-align:left;">
                             <button type="button" style="margin-left:50px" id="btn_query" class="btn btn-primary">查询</button>

@@ -1,4 +1,4 @@
-package cn.lubing36.test;
+package cn.lubing36.user;
 
 
 import org.springframework.stereotype.Controller;
@@ -9,28 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TempController {
+public class LoginController {
 
-	@RequestMapping(value={"/", "/welcome**"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/", "/main**"}, method=RequestMethod.GET)
 	public ModelAndView welcomePage(){
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Hello World");
-		model.addObject("message", "This is welcome page!");
-		model.setViewName("hello");
+		model.setViewName("main");
 		return model;
 	}
 	
-	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Hello World");
-		model.addObject("message", "This is protected page!");
-		model.setViewName("admin");
-
-		return model;
-
-	}
 	
 	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
 	public String login(Model model,
@@ -48,4 +35,9 @@ public class TempController {
 		return "loginPage";
 
 	}
+	
+	@RequestMapping(value="temp")
+	public String temp(){
+		return "temp";
+	} 
 }

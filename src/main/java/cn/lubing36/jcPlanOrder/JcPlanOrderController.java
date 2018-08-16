@@ -66,15 +66,6 @@ public class JcPlanOrderController {
 	}
 	
 	
-//	@ResponseBody
-	@RequestMapping(value="temp")
-	public String temp(Model model,HttpServletRequest request, HttpServletResponse response) {
-//		long count =  this.bankUnionNumberInfoMapper.countByExample(null);
-//		return String.valueOf(count);
-		return "github";
-	}
-	
-	
 	@InitBinder("jcPlannedOrder")
 	public void jcPlannedOrder (WebDataBinder binder){
 		binder.setFieldDefaultPrefix("jcPlannedOrder."); //$NON-NLS-1$
