@@ -14,7 +14,7 @@ public class LoginController {
 	@RequestMapping(value={"/", "/main**"}, method=RequestMethod.GET)
 	public ModelAndView welcomePage(){
 		ModelAndView model = new ModelAndView();
-		model.setViewName("main");
+		model.setViewName("common.main");
 		return model;
 	}
 	
