@@ -3,15 +3,7 @@ package cn.lubing36.common;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 
-* <span>Title: PageInfo.java</span><br/>  
-* <span>Description: </span> <br/>  
-* <span>Copyright: Copyright (c) 2018</span><br/> 
-* @author cn.lubing36  
-* @date 2018Äê8ÔÂ1ÈÕ  
-* @version 1.0
- */
+
 public class PageInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
