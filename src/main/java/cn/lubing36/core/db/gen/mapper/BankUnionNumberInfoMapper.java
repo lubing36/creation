@@ -23,11 +23,6 @@ public interface BankUnionNumberInfoMapper {
 
     int updateByExample(@Param("record") BankUnionNumberInfo record, @Param("example") BankUnionNumberInfoExample example);
     
-    /**
-     * ∑÷“≥≤È—Ø
-     * @param example
-     * @return
-     */
     List<BankUnionNumberInfo> selectByPage(@Param("params") Map<String, Object> params);
     
 }
