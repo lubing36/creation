@@ -11,12 +11,12 @@
 				class="glyphicon glyphicon-home"></i>首页 </a></li>
 		<li class="list-group-item"><a href="${ctx}/creation/showBankUnionNumberDataPage"><i
 				class="glyphicon glyphicon-certificate"></i>银行银联号数据</a></li>
-		<li class="list-group-item"><a href="list.html"><i
-				class="glyphicon glyphicon-th-list"></i>Tables and List </a></li>
+		<li class="list-group-item"><a href="${ctx}/creation/showOracleErrorMessageDataPage"><i
+				class="glyphicon glyphicon-th-list"></i>oracle错误码 </a></li>
 		<li class="list-group-item"><a href="forms.html"><i
 				class="glyphicon glyphicon-list-alt"></i>Forms</a></li>
 		<li class="list-group-item"><a href="alerts.html"><i
-				class="glyphicon glyphicon-bell"></i>Alerts</a></li>
+				class="glyphicon glyphicon-bell"></i>Alerts</a></li> 
 		<li class="list-group-item"><a href="timeline.html"><i
 				class="glyphicon glyphicon-indent-left"></i>Timeline</a></li>
 		<li class="list-group-item"><a href="calendars.html"><i
@@ -65,5 +65,6 @@
 			class="list-group-item">Subitem 2</a> <a href=""
 			class="list-group-item">Subitem 3</a></li>
 		</li>
+		
 	</ul>
 </div>

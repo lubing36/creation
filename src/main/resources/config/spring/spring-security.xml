@@ -21,7 +21,9 @@
             <!-- <user-service>
                 <user authorities="ROLE_USER" name="lubing36" password="123" />
             </user-service> -->
-           <!--  <password-encoder hash="md5"/> -->
+           <!-- <password-encoder hash="md5">
+           	<salt-source user-property="salt"/>
+           </password-encoder> -->
         </authentication-provider>
     </authentication-manager>
 

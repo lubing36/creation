@@ -2,9 +2,6 @@ package cn.lubing36.football;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
@@ -18,10 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 @Controller
 public class FootballController {

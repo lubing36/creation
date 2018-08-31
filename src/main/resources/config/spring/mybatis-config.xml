@@ -15,5 +15,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="/config/mapper/gen/BankUnionNumberInfoMapper.xml"/>
 		<mapper resource="/config/mapper/gen/JcPlannedOrderMapper.xml"/>
+		<mapper resource="/config/mapper/gen/OracleErrorMessageMapper.xml"/>
 	</mappers>
 </configuration>

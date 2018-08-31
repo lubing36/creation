@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.lubing36.common.PageInfo;
 import cn.lubing36.core.db.gen.domain.JcPlannedOrder;
 import cn.lubing36.core.db.gen.domain.JcPlannedOrderExample;
 import cn.lubing36.core.db.gen.mapper.BankUnionNumberInfoMapper;
@@ -54,15 +53,6 @@ public class JcPlanOrderController {
 			}
 		}
 		return "result";
-	}
-	
-	@RequestMapping(value="show_jcPlanOrderData")
-	public String show_jcPlanOrderData(Model model) throws IOException{
-		
-		long count = jcPlannedOrderMapper.countByExample(null);
-		PageInfo info = new PageInfo((int)count, 10, 1, null);
-		model.addAttribute("info", info);
-		return "jcPlanOrder.show_jcPlanOrderData";
 	}
 	
 	

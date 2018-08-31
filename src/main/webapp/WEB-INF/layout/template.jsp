@@ -16,9 +16,12 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
 <script type="text/javascript" src="${ctx }/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="${ctx }/dist/js/jquery.base64.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/site.min.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/bootstrap-table.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="${ctx }/dist/js/bootstrap-table-export.js"></script>
+<script type="text/javascript" src="${ctx }/dist/js/tableExport.js"></script>
 <script type="text/javascript" src="${ctx }/dist/js/bootstrap.min.js"></script>
 </head>
 <body>

@@ -1,7 +1,5 @@
 package cn.lubing36.accountBook;
 
-import java.security.Provider;
-import java.security.Security;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +27,6 @@ public class AccountBookController {
 				}
 			}
 		}
-		System.out.println(y);
-//		for(int i =0; i<arrays.length; i++){
-//			System.out.println(arrays[i]);
-//		}
 		
 	}
 
